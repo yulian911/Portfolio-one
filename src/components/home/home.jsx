@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import './home.css'
-import { img1,BsMouse, img2} from '../../assets'
+import {BsMouse, img2} from '../../assets'
+import Buttons from '../button/button';
+
+// const toggle =document.querySelector('.hover-show')
+// toggle.addEventListener('click' ,()=>{
+//     toggle.classList.toggle('active')
+// })
+
+
 
 const Home = () => {
+  const [toggle, setToggle] = useState(false)
+
+  
   return (
     <div id='home' className='container home-container'>
       <div className='logo'>
-        <div className='hover-show'>
+        <div className={`hover-show ${toggle?'active':''}` } onClick={()=>setToggle(!toggle)}>
           <span className='circle'></span>
           <span className='circle'></span>
           <span className='circle'></span>
@@ -36,14 +47,11 @@ const Home = () => {
         </p>
       </h2>
 
-      {/* <Buttons /> */}
+      <Buttons />
     </div>
   );
 }
 
-// const toggle =document.querySelector('.main-img')
-// toggle.addEventListener('click' ,()=>{
-//     toggle.classList.toggle('active')
-// })
+
 
 export default Home
